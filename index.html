@@ -14,6 +14,7 @@
     <div class="container">
       <div class="absolute">
         <div class="panel grid grid--2-cols">
+
           <section class="player player--active flex column">
             <h2>Player 1</h2>
             <span class="total-points margin-bottom-bigger" id="totalPoints">50</span>
@@ -22,14 +23,18 @@
               <span class="points" id="points">0</span>
             </div>
           </section>
+
           <div class="controls-container flex column">
             <button class="btn" id="btnNewGame">🔄 New Game</button>
             <div class="image-container">
               <img src="images/dice-1.png" alt="dice-1" class="image">
             </div>
-            <button class="btn">🎲 Roll Dice</button>
-            <button class="btn">📥 Hold</button>
+            <div>
+              <button class="btn">🎲 Roll Dice</button>
+              <button class="btn">📥 Hold</button>
+            </div>
           </div>
+
           <section class="player flex column">
             <h2>Player 2</h2>
             <span class="total-points margin-bottom-bigger" id="totalPoints">50</span>
@@ -38,6 +43,7 @@
               <span class="points" id="points">0</span>
             </div>
           </section>
+
         </div>
       </div>
     </div>
