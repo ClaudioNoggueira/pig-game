@@ -129,10 +129,21 @@ strong {
   font-weight: 600;
   padding: 1.2rem 3.6rem;
   text-transform: uppercase;
+
+  transition: all 0.3s;
 }
 
 .btn::first-letter {
   font-size: 1.8rem;
+}
+
+.btn:active {
+  transform: translateY(-20%);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+  outline: none;
 }
 
 .controls-container {
