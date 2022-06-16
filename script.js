@@ -22,8 +22,8 @@ btnRollEl.addEventListener(`click`, () => {
 btnNewGameEl.addEventListener(`click`, newGame);
 
 // STARTING CONDITIONS
-document.querySelector(`#currentPoints--1`).textContent = 0;
-document.querySelector(`#totalPoints--1`).textContent = 0;
-document.querySelector(`#currentPoints--2`).textContent = 0;
-document.querySelector(`#totalPoints--2`).textContent = 0;
+document.querySelector(`#currentScore--1`).textContent = 0;
+document.querySelector(`#totalScore--1`).textContent = 0;
+document.querySelector(`#currentScore--2`).textContent = 0;
+document.querySelector(`#totalScore--2`).textContent = 0;
 diceImageEl.classList.add(`hidden`);
