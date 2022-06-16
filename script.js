@@ -1,7 +1,25 @@
 // ELEMENTS
+// Images
 const diceImageEl = document.querySelector(`#diceImage`);
+
+// Buttons
 const btnRollEl = document.querySelector(`#rollDice`);
 const btnNewGameEl = document.querySelector(`#btnNewGame`);
+
+// Texts
+const currentScore1El = document.querySelector(`#currentScore--1`);
+const totalScore1El = document.querySelector(`#totalScore--1`);
+const currentScore2El = document.querySelector(`#currentScore--2`);
+const totalScore2El = document.querySelector(`#totalScore--2`);
+
+// STARTING CONDITIONS
+currentScore1El.textContent = 0;
+totalScore1El.textContent = 0;
+currentScore2El.textContent = 0;
+totalScore2El.textContent = 0;
+diceImageEl.classList.add(`hidden`);
+
+let currentScore = 0;
 
 function newGame() {
   window.location.reload();
@@ -13,6 +31,11 @@ function rollDice() {
 
   diceImageEl.classList.remove(`hidden`);
   diceImageEl.setAttribute(`src`, `images/dice-${randomNumber}.png`);
+
+  if (randomNumber != 1) {
+    currentScore += randomNumber;
+    currentScore1El.textContent = currentScore;
+  }
 }
 
 btnRollEl.addEventListener(`click`, () => {
@@ -20,10 +43,3 @@ btnRollEl.addEventListener(`click`, () => {
 });
 
 btnNewGameEl.addEventListener(`click`, newGame);
-
-// STARTING CONDITIONS
-document.querySelector(`#currentScore--1`).textContent = 0;
-document.querySelector(`#totalScore--1`).textContent = 0;
-document.querySelector(`#currentScore--2`).textContent = 0;
-document.querySelector(`#totalScore--2`).textContent = 0;
-diceImageEl.classList.add(`hidden`);
