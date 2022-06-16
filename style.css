@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+:root {
+  --font-stack: "Nunito", sans-serif;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,6 +17,10 @@ html {
 }
 
 body {
+  background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+  color: #222;
+  font-family: var(--font-stack);
+  height: 100vh;
   overflow-x: hidden;
 }
 
@@ -98,4 +108,124 @@ strong {
 
 .justify-text {
   text-align: justify;
+}
+
+.absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn {
+  background-color: rgb(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 1.2rem 3.6rem;
+  text-transform: uppercase;
+}
+
+.btn::first-letter {
+  font-size: 1.8rem;
+}
+
+.controls-container {
+  align-items: center;
+  height: 100%;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 22rem;
+  z-index: 9;
+}
+
+.controls-container .image-container {
+  padding: 4.8rem;
+}
+
+.controls-container .image-container .image {
+  width: 100%;
+}
+
+.panel {
+  background-color: rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+  height: 56rem;
+  margin: 4.8rem auto;
+  position: relative;
+  width: 100rem;
+}
+
+.panel .player {
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 4.8rem 8rem;
+}
+
+.panel .player:first-child {
+  border-radius: 12px 0 0 12px;
+  padding-right: 8rem;
+}
+
+/* SECOND CHILD IS THE CONTROLS-CONTAINER */
+
+.panel .player:nth-child(3) {
+  border-radius: 0 12px 12px 0;
+  padding-left: 8rem;
+}
+
+.panel .player h2 {
+  font-size: 4.2rem;
+  font-weight: 500;
+  letter-spacing: 1.05px;
+  text-transform: uppercase;
+}
+
+.panel .player .total-points {
+  color: #c7365f;
+  font-size: 8rem;
+}
+
+.panel .player div {
+  background-color: #c7365f;
+  border-radius: 10px;
+  color: #fff;
+  opacity: 0.8;
+  padding: 2.4rem 6.4rem;
+}
+
+.panel .player:first-child {
+  padding-right: 10rem;
+}
+
+.panel .player:nth-child(2) {
+  padding-left: 12rem;
+}
+
+.panel .player div h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.panel .player div .points {
+  font-size: 3.6rem;
+}
+
+.panel .player--active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.panel .player--active h2 {
+  font-weight: 600;
+}
+
+.panel .player--active div {
+  opacity: 1;
 }

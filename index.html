@@ -12,29 +12,33 @@
 <body>
   <main>
     <div class="container">
-      <div class="controls-container flex column">
-        <button class="btn" id="btnNewGame">🔄 New Game</button>
-        <img src="images/dice-1.png" alt="dice-1" class="image">
-        <button class="btn">🎲 Roll Dice</button>
-        <button class="btn">📥 Hold</button>
-      </div>
-      <div class="grid grid--2-cols">
-        <section>
-          <h2>Player</h2>
-          <span class="total-points" id="totalPoints">50</span>
-          <div>
-            <h3>Current</h3>
-            <span class="points" id="points">0</span>
+      <div class="absolute">
+        <div class="panel grid grid--2-cols">
+          <section class="player player--active flex column">
+            <h2>Player 1</h2>
+            <span class="total-points margin-bottom-bigger" id="totalPoints">50</span>
+            <div class="center-text">
+              <h3 class="margin-bottom-smaller">Current</h3>
+              <span class="points" id="points">0</span>
+            </div>
+          </section>
+          <div class="controls-container flex column">
+            <button class="btn" id="btnNewGame">🔄 New Game</button>
+            <div class="image-container">
+              <img src="images/dice-1.png" alt="dice-1" class="image">
+            </div>
+            <button class="btn">🎲 Roll Dice</button>
+            <button class="btn">📥 Hold</button>
           </div>
-        </section>
-        <section>
-          <h2>Player</h2>
-          <span class="total-points" id="totalPoints">50</span>
-          <div>
-            <h3>Current</h3>
-            <span class="points" id="points">0</span>
-          </div>
-        </section>
+          <section class="player flex column">
+            <h2>Player 2</h2>
+            <span class="total-points margin-bottom-bigger" id="totalPoints">50</span>
+            <div class="center-text">
+              <h3 class="margin-bottom-smaller">Current</h3>
+              <span class="points" id="points">0</span>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   </main>
