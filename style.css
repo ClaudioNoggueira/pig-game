@@ -111,6 +111,10 @@ strong {
   text-align: justify;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .absolute {
   position: absolute;
   top: 50%;
@@ -163,6 +167,7 @@ strong {
 }
 
 .controls-container .image-container .image {
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
   width: 100%;
 }
 

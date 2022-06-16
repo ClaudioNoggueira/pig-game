@@ -1,5 +1,3 @@
-let randomNumber = 1;
-
 // ELEMENTS
 const diceImageEl = document.querySelector(`#diceImage`);
 const btnRollEl = document.querySelector(`#rollDice`);
@@ -10,16 +8,22 @@ function newGame() {
 }
 
 function rollDice() {
-  randomNumber = Math.floor(Math.random() * 6) + 1;
+  const randomNumber = Math.floor(Math.random() * 6) + 1;
   console.log(`Random number: ${randomNumber}`);
 
+  diceImageEl.classList.remove(`hidden`);
   diceImageEl.setAttribute(`src`, `images/dice-${randomNumber}.png`);
 }
-
-window.onload = rollDice();
 
 btnRollEl.addEventListener(`click`, () => {
   rollDice();
 });
 
 btnNewGameEl.addEventListener(`click`, newGame);
+
+// STARTING CONDITIONS
+document.querySelector(`#currentPoints--1`).textContent = 0;
+document.querySelector(`#totalPoints--1`).textContent = 0;
+document.querySelector(`#currentPoints--2`).textContent = 0;
+document.querySelector(`#totalPoints--2`).textContent = 0;
+diceImageEl.classList.add(`hidden`);
