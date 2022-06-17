@@ -39,10 +39,14 @@ function displayCurrentScore() {
 
 function switchPlayer() {
   currentPlayer = currentPlayer === 1 ? 2 : 1;
-  currentScore = 0;
+
+  currentScore1El.textContent = 0;
+  currentScore2El.textContent = 0;
 
   sectionPlayer1.classList.toggle(`player--active`);
   sectionPlayer2.classList.toggle(`player--active`);
+
+  currentScore = 0;
 }
 
 function hold() {
@@ -64,15 +68,9 @@ function rollDice() {
   diceImageEl.classList.remove(`hidden`);
   diceImageEl.setAttribute(`src`, `images/dice-${randomNumber}.png`);
 
-  if (randomNumber != 1) {
-    currentScore += randomNumber;
-    displayCurrentScore();
-    saveTotalScore();
-  } else {
-    currentScore = 0;
-    displayCurrentScore();
-    switchPlayer();
-  }
+  randomNumber != 1 ? (currentScore += randomNumber) : switchPlayer();
+
+  displayCurrentScore();
 }
 
 btnRollEl.addEventListener(`click`, rollDice);
