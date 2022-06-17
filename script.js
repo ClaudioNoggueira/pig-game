@@ -6,6 +6,7 @@ const diceImageEl = document.querySelector(`#diceImage`);
 const btnRollEl = document.querySelector(`#rollDice`);
 const btnHoldEl = document.querySelector(`#hold`);
 const btnNewGameEl = document.querySelector(`#btnNewGame`);
+const bntCloseModal = document.querySelector(`#btnCloseModal`);
 
 // Texts
 const currentScore1El = document.querySelector(`#currentScore--1`);
@@ -95,8 +96,16 @@ function rollDice() {
   displayCurrentScore();
 }
 
+function closeModal() {
+  document.querySelector(`.modal`).classList.add(`hidden`);
+  document.querySelector(`.overlay`).classList.add(`hidden`);
+}
+
 btnRollEl.addEventListener(`click`, rollDice);
 
 btnHoldEl.addEventListener(`click`, hold);
 
 btnNewGameEl.addEventListener(`click`, newGame);
+
+bntCloseModal.addEventListener(`click`, closeModal);
+document.querySelector(`.overlay`).addEventListener(`click`, closeModal);
