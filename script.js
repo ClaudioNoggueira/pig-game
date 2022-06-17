@@ -12,6 +12,10 @@ const totalScore1El = document.querySelector(`#totalScore--1`);
 const currentScore2El = document.querySelector(`#currentScore--2`);
 const totalScore2El = document.querySelector(`#totalScore--2`);
 
+// Sections
+const sectionPlayer1 = document.querySelector(`#sectionPlayer1`);
+const sectionPlayer2 = document.querySelector(`#sectionPlayer2`);
+
 // STARTING CONDITIONS
 currentScore1El.textContent = 0;
 totalScore1El.textContent = 0;
@@ -20,9 +24,22 @@ totalScore2El.textContent = 0;
 diceImageEl.classList.add(`hidden`);
 
 let currentScore = 0;
+let currentPlayer = 1;
 
 function newGame() {
   window.location.reload();
+}
+
+function displayCurrentScore() {
+  if (currentPlayer === 1) currentScore1El.textContent = currentScore;
+  if (currentPlayer === 2) currentScore2El.textContent = currentScore;
+}
+
+function switchPlayer() {
+  currentPlayer = currentPlayer === 1 ? 2 : 1;
+
+  sectionPlayer1.classList.toggle(`player--active`);
+  sectionPlayer2.classList.toggle(`player--active`);
 }
 
 function rollDice() {
@@ -34,7 +51,11 @@ function rollDice() {
 
   if (randomNumber != 1) {
     currentScore += randomNumber;
-    currentScore1El.textContent = currentScore;
+    displayCurrentScore();
+  } else {
+    currentScore = 0;
+    displayCurrentScore();
+    switchPlayer();
   }
 }
 
