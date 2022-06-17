@@ -28,6 +28,8 @@ let currentScore = 0;
 let currentPlayer = 1;
 const totalScore = [0, 0];
 
+let gameIsFinished = false;
+
 function newGame() {
   window.location.reload();
 }
@@ -49,21 +51,41 @@ function switchPlayer() {
   currentScore = 0;
 }
 
+function playerWins() {
+  document.querySelector(`#totalScore--${currentPlayer}`).textContent =
+    totalScore[currentPlayer - 1];
+
+  document
+    .querySelector(`#sectionPlayer${currentPlayer}`)
+    .classList.add(`player--winner`);
+  document
+    .querySelector(`#sectionPlayer${currentPlayer}`)
+    .classList.remove(`player--active`);
+
+  diceImageEl.classList.add(`hidden`);
+
+  gameIsFinished = true;
+}
+
 function hold() {
-  totalScore[currentPlayer - 1] += currentScore;
+  if (gameIsFinished) return alert(`Player ${currentPlayer} is the winner!!!`);
 
-  if (currentPlayer === 1) totalScore1El.textContent = totalScore[0];
-  if (currentPlayer === 2) totalScore2El.textContent = totalScore[1];
+  let playerIndex = currentPlayer - 1;
+  totalScore[playerIndex] += currentScore;
 
-  switchPlayer();
+  if (currentPlayer === 1) totalScore1El.textContent = totalScore[playerIndex];
+  if (currentPlayer === 2) totalScore2El.textContent = totalScore[playerIndex];
+
+  totalScore[playerIndex] >= 100 ? playerWins() : switchPlayer();
 
   currentScore1El.textContent = currentScore;
   currentScore2El.textContent = currentScore;
 }
 
 function rollDice() {
+  if (gameIsFinished) return alert(`Player ${currentPlayer} is the winner!!!`);
+
   const randomNumber = Math.floor(Math.random() * 6) + 1;
-  console.log(`Random number: ${randomNumber}`);
 
   diceImageEl.classList.remove(`hidden`);
   diceImageEl.setAttribute(`src`, `images/dice-${randomNumber}.png`);
