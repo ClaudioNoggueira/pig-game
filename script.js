@@ -4,6 +4,7 @@ const diceImageEl = document.querySelector(`#diceImage`);
 
 // Buttons
 const btnRollEl = document.querySelector(`#rollDice`);
+const btnHoldEl = document.querySelector(`#hold`);
 const btnNewGameEl = document.querySelector(`#btnNewGame`);
 
 // Texts
@@ -25,6 +26,7 @@ diceImageEl.classList.add(`hidden`);
 
 let currentScore = 0;
 let currentPlayer = 1;
+const totalScore = [0, 0];
 
 function newGame() {
   window.location.reload();
@@ -37,9 +39,22 @@ function displayCurrentScore() {
 
 function switchPlayer() {
   currentPlayer = currentPlayer === 1 ? 2 : 1;
+  currentScore = 0;
 
   sectionPlayer1.classList.toggle(`player--active`);
   sectionPlayer2.classList.toggle(`player--active`);
+}
+
+function hold() {
+  totalScore[currentPlayer - 1] += currentScore;
+
+  if (currentPlayer === 1) totalScore1El.textContent = totalScore[0];
+  if (currentPlayer === 2) totalScore2El.textContent = totalScore[1];
+
+  switchPlayer();
+
+  currentScore1El.textContent = currentScore;
+  currentScore2El.textContent = currentScore;
 }
 
 function rollDice() {
@@ -52,6 +67,7 @@ function rollDice() {
   if (randomNumber != 1) {
     currentScore += randomNumber;
     displayCurrentScore();
+    saveTotalScore();
   } else {
     currentScore = 0;
     displayCurrentScore();
@@ -59,8 +75,8 @@ function rollDice() {
   }
 }
 
-btnRollEl.addEventListener(`click`, () => {
-  rollDice();
-});
+btnRollEl.addEventListener(`click`, rollDice);
+
+btnHoldEl.addEventListener(`click`, hold);
 
 btnNewGameEl.addEventListener(`click`, newGame);
